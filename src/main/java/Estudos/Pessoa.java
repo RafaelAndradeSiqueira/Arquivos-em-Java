@@ -20,4 +20,8 @@ public class Pessoa {
         System.out.println("Ola, sou o " + this.nome + ", meu cargo é " + this.cargo + ", meu sexo é "
         + this.sexo + " e minha idade é " + this.idade);
     }
+
+    public String toCSV() {
+        return this.nome + "," + this.cargo + "," + this.sexo + "," + this.idade;
+    }
 }

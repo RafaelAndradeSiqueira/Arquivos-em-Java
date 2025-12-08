@@ -52,6 +52,31 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+        try{
+            OutputStream os = new FileOutputStream("src/main/java/Estudos/cadastro2.csv");
+            OutputStreamWriter osw = new OutputStreamWriter(os);
+            BufferedWriter bw = new BufferedWriter(osw);
+
+            bw.write("nome,cargo,sexo,idade");
+            bw.newLine();
+
+            for (Pessoa p : pessoas) {
+                System.out.println(p.toCSV());
+                bw.write(p.toCSV());
+                bw.newLine();
+            }
+
+            bw.close();
+            osw.close();
+            os.close();
+
+
+
+        }catch(Exception e){
+            System.out.println("Erro na escrita do arquivo.");
+        }
+
+
         System.out.println("\n--- PESSOAS CADASTRADAS ---");
         for (Pessoa p : pessoas) {
             p.apresentar();
